@@ -19,5 +19,5 @@ public abstract class Player {
         return name;
     }
     
-    public abstract Move computeMove() throws InterruptedException, IOException;
+    public abstract Move computeMove() throws InterruptedException, IOException, ClassNotFoundException;
 }

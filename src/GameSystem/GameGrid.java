@@ -16,8 +16,9 @@ public abstract class GameGrid {
         this.rows = rows;
     }
     
-    public abstract MoveResult makeMove(Move move);
+    public abstract int makeMove(Move move);
     public abstract GameResult getResult();
+    public abstract void clear();
     
     public void setMarker(int x, int y, int id) {
         grid[y][x] = id;
