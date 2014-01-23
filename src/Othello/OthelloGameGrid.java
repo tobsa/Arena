@@ -1,13 +1,12 @@
-package TicTacToe;
+package Othello;
 
 import GameSystem.GameResult;
 import GameSystem.Move;
-import SharedSystem.SharedConstants;
 
-public class GameGrid extends GameSystem.GameGrid implements SharedConstants {
+public class OthelloGameGrid extends GameSystem.GameGrid {
     
-    public GameGrid() {
-        super(3, 3);
+    public OthelloGameGrid() {
+        super(OTHELLO_GRID_SIZE, OTHELLO_GRID_SIZE);
     }
     
     @Override
@@ -24,7 +23,7 @@ public class GameGrid extends GameSystem.GameGrid implements SharedConstants {
         GameResult result = new GameResult(GameResult.NO_OUTCOME);
         
         if(getMarker(2, 2) == PLAYER_1)
-            result.set(GameResult.WINNER, PLAYER_1);
+            result.setResult(GameResult.PLAYER_1_WON);
         
         return result;
     }

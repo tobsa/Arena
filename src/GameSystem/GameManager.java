@@ -3,6 +3,7 @@ package GameSystem;
 import NetworkSystem.NetworkManager;
 import NetworkSystem.NetworkReadPlayer;
 import NetworkSystem.NetworkSendPlayer;
+import SharedSystem.BlockQueue;
 import SharedSystem.IGGListener;
 import SharedSystem.IGMListener;
 import SharedSystem.SharedConstants;
@@ -89,6 +90,8 @@ public abstract class GameManager implements Runnable, SharedConstants {
     
     private boolean makeMove(Player player) throws InterruptedException, IOException, ClassNotFoundException {                
         while(true) {        
+            BlockQueue.getInstance().clear();
+            
             int action = gameGrid.makeMove(player.computeMove());
 
             if(action == Move.PASS)
@@ -98,14 +101,11 @@ public abstract class GameManager implements Runnable, SharedConstants {
             
             GameResult result = gameGrid.getResult();
             
+            result.setNames(player1.getName(), player2.getName());
+            
             for(IGMListener listener : listeners) 
                 listener.updateResult(result);
-            
-            if(result.getResult() == GameResult.INVALID) {
-                System.out.println("Debugging needed!");
-                return false;
-            }
-            
+                        
             if(result.getResult() == GameResult.NO_OUTCOME)
                 return false;
             

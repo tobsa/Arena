@@ -1,45 +1,38 @@
 package GameSystem;
 
 public class GameResult {
-    public static final int WINNER = 0;
-    public static final int DRAW = 1;
-    public static final int NO_OUTCOME = 2;
-    public static final int INVALID = 3;
+    public static final int PLAYER_1_WON = 0;
+    public static final int PLAYER_2_WON = 1;
+    public static final int DRAW = 2;
+    public static final int NO_OUTCOME = 3;
+    public static final int INVALID = 4;
     
     private int result;
-    private int winnerID;
+    private String name1 = "";
+    private String name2 = "";
         
-    public GameResult() {
-        result = INVALID;
-    }
-    
     public GameResult(int result) {
         this.result = result;
-    }
-        
-    public GameResult(int result, int winnerID) {
-        this.result = result;
-        this.winnerID = winnerID;
-    }
-    
-    public void set(int result, int winnerID) {
-        this.result = result;
-        this.winnerID = winnerID;
     }
     
     public void setResult(int result) {
         this.result = result;
     }
     
-    public void setWinner(int winnerID) {
-        this.winnerID = winnerID;
+    public void setNames(String name1, String name2) {
+        this.name1 = name1;
+        this.name2 = name2;
     }
     
+    public String getName1() {
+        return name1;
+    }
+    
+    public String getName2() {
+        return name2;
+    }
+        
     public int getResult() {
         return result;
-    }
-    
-    public int getWinner() {
-        return winnerID;
     }
 }

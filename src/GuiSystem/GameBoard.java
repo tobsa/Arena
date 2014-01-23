@@ -3,16 +3,16 @@ package GuiSystem;
 import GameSystem.Move;
 import SharedSystem.BlockQueue;
 import SharedSystem.IGGListener;
+import SharedSystem.SharedConstants;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public abstract class GameBoard extends JPanel implements IGGListener {
+public abstract class GameBoard extends JPanel implements IGGListener, SharedConstants {
     private JLabel[][] grid;
     private int imageSize;
     

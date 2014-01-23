@@ -1,10 +1,11 @@
 package GameSystem;
 
 import SharedSystem.IGGListener;
+import SharedSystem.SharedConstants;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class GameGrid {
+public abstract class GameGrid implements SharedConstants {
     private int[][] grid;
     private int rows;
     private int columns;

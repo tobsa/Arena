@@ -1,14 +1,13 @@
 package TicTacToe;
 
-import SharedSystem.SharedConstants;
 import javax.swing.ImageIcon;
 
-public class GameBoard extends GuiSystem.GameBoard implements SharedConstants {
+public class TicTacToeGameBoard extends GuiSystem.GameBoard {
     private ImageIcon empty  = new ImageIcon(TIC_TAC_TOE_IMAGE_EMPTY);
     private ImageIcon cross  = new ImageIcon(TIC_TAC_TOE_IMAGE_CROSS);
     private ImageIcon circle = new ImageIcon(TIC_TAC_TOE_IMAGE_CIRCLE);
     
-    public GameBoard() {
+    public TicTacToeGameBoard() {
         super(TIC_TAC_TOE_GRID_SIZE, TIC_TAC_TOE_GRID_SIZE, TIC_TAC_TOE_IMAGE_SIZE);
     }
     

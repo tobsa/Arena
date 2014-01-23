@@ -1,14 +1,15 @@
-package TicTacToe;
+package Othello;
 
 import GameSystem.GameGrid;
 import GameSystem.Human;
 import NetworkSystem.NetworkManager;
+import SharedSystem.SharedConstants;
 
-public class TicTacToeManager extends GameSystem.GameManager {
+public class OthelloManager extends GameSystem.GameManager implements SharedConstants {
     public static final int TYPE_HUMAN = 0;
     public static final int TYPE_COMPUTER_RANDOMIZER = 1;
     
-    public TicTacToeManager(GameGrid gameGrid, NetworkManager networkManager) {
+    public OthelloManager(GameGrid gameGrid, NetworkManager networkManager) {
         super(gameGrid, networkManager);
     }
     
