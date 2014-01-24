@@ -2,6 +2,7 @@ package GuiSystem;
 
 import GameSystem.GameManager;
 import SharedSystem.IGMListener;
+import SharedSystem.SharedConstants;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.WindowAdapter;
@@ -12,18 +13,22 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
 
-public abstract class GameFrame extends JFrame implements IGMListener {
+public abstract class GameFrame extends JFrame implements IGMListener, SharedConstants {
     private GameManager gameManager;
     private GameBoard gameBoard;
     private Thread gameThread;
     private GameMenu gameMenu;
     private String name;
+    private String logoFilename;
+    private String backgroundFilename;
     private JFrame parent;
     
-    public GameFrame(JFrame parent, String name, GameManager gameManager, GameBoard gameBoard) {
+    public GameFrame(JFrame parent, String name, String logoFilename, String backgroundFilename, GameManager gameManager, GameBoard gameBoard) {
         setLayout(new BorderLayout());
         this.parent = parent;
         this.name = name;
+        this.logoFilename = logoFilename;
+        this.backgroundFilename = backgroundFilename;
         this.gameManager = gameManager;
         this.gameBoard = gameBoard;
         gameThread = new Thread(gameManager);
@@ -44,13 +49,21 @@ public abstract class GameFrame extends JFrame implements IGMListener {
         
         setLocationRelativeTo(parent);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setVisible(true);
+        setVisible(false);
         
         addWindowListener(new GameFrameListener());
     }
-    
+           
     public String getGameName() {
         return name;
+    }
+    
+    public String getGameLogoFilename() {
+        return logoFilename;
+    }
+    
+    public String getGameDescriptionFilename() {
+        return backgroundFilename;
     }
     
     public void createPlayer1(int type, String name) {

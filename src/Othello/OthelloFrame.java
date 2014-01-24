@@ -8,7 +8,11 @@ import javax.swing.JFrame;
 public class OthelloFrame extends GameFrame {
     
     public OthelloFrame(JFrame parent, NetworkManager networkManager) {
-        super(parent, "Othello", new OthelloManager(new OthelloGameGrid(), networkManager), new OthelloGameBoard());
+        super(parent, OTHELLO_NAME, 
+                OTHELLO_LOGO_FILENAME, 
+                OTHELLO_BACKGROUND_FILENAME,
+                new OthelloManager(new OthelloGameGrid(), networkManager), 
+                new OthelloGameBoard());
     }
 
     @Override

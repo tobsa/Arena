@@ -8,7 +8,11 @@ import javax.swing.JFrame;
 public class TicTacToeFrame extends GameFrame {
     
     public TicTacToeFrame(JFrame parent, NetworkManager networkManager) {
-        super(parent, "Tic-Tac-Toe", new TicTacToeManager(new TicTacToeGameGrid(), networkManager), new TicTacToeGameBoard());
+        super(parent, TIC_TAC_TOE_NAME, 
+                TIC_TAC_TOE_LOGO_FILENAME, 
+                TIC_TAC_TOE_BACKGROUND_FILENAME, 
+                new TicTacToeManager(new TicTacToeGameGrid(), networkManager), 
+                new TicTacToeGameBoard());
     }
 
     @Override
